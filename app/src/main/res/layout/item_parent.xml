@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginBottom="2dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="2dp"
+    android:background="@color/backGroundTaps">
+
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="-24dp"
+        android:layout_toLeftOf="@id/relative"
+        android:fontFamily="@font/intro"
+        android:text="1"
+        android:textColor="@android:color/white" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:clickable="false"
+        android:src="@android:drawable/arrow_down_float"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="3dp"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="6dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_maker"
+            android:layout_alignBottom="@+id/tv_maker"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toStartOf="@+id/tv_maker"
+            android:ellipsize="end"
+            android:fontFamily="@font/intro"
+            android:maxLines="1"
+            android:text="УБИТЬ ДРАКОНА"
+            android:textColor="@color/backGroundTaps" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toStartOf="@+id/tv_vol"
+            android:ellipsize="end"
+            android:fontFamily="@font/intro"
+            android:maxLines="1"
+            android:text="ПОРТЕР"
+            android:textColor="@color/backGroundTaps" />
+
+        <TextView
+            android:id="@+id/tv_maker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/intro"
+            android:text="LOVECRAFT"
+            android:textColor="@color/backGroundTaps"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_type"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/intro"
+            android:text="170/220"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_vol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="75dp"
+            android:fontFamily="@font/intro"
+            android:text="8%"
+            android:textColor="@color/backGroundTaps"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">CraftoBar</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="exit">Выход</string>
+    <string name="settings">Настройки</string>
+
+
+    <!-- Краны -->
+
+    <string name="title_beer_taps">Краны</string>
+
+
+    <!-- Каталог -->
+
+    <string name="title_catalog">Каталог</string>
+
+
+    <!-- События -->
+
+    <string name="title_events">События</string>
+
+
+    <!--О нас-->
+
+    <string name="title_about">О нас</string>
+
+
+    <!-- permission -->
+    <string name="granted_access">Необходим доступ к файловой системе и интернет.</string>
+
+
+</resources>
