@@ -37,4 +37,6 @@
 
     <!-- test -->
     <string name="test_resource">я добавила тестовый ресурс.</string>
+    <string name="test_resource_text">я тоже добавил текстовый ресурс.</string>
+
 </resources>
