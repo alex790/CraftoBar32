@@ -35,4 +35,6 @@
     <string name="granted_access">Необходим доступ к файловой системе и интернет.</string>
 
 
+    <!-- test -->
+    <string name="test_resource">я добавила тестовый ресурс.</string>
 </resources>
