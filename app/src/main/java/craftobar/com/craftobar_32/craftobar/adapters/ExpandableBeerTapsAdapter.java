@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.bignerdranch.expandablerecyclerview.ExpandableRecyclerAdapter;
 import java.util.List;
 import craftobar.com.craftobar_32.craftobar.R;
-import craftobar.com.craftobar_32.craftobar.models.ChaildItemModel;
+import craftobar.com.craftobar_32.craftobar.models.ChildItemModel;
 import craftobar.com.craftobar_32.craftobar.models.ParentItemModel;
 import craftobar.com.craftobar_32.craftobar.adapters.viewholders.ChildItemViewHolder;
 import craftobar.com.craftobar_32.craftobar.adapters.viewholders.ParentItemViewHolder;
@@ -18,7 +18,7 @@ import craftobar.com.craftobar_32.craftobar.adapters.viewholders.ParentItemViewH
  */
 
 
-public class ExpandableBeerTapsAdapter extends ExpandableRecyclerAdapter<ParentItemModel, ChaildItemModel, ParentItemViewHolder, ChildItemViewHolder> {
+public class ExpandableBeerTapsAdapter extends ExpandableRecyclerAdapter<ParentItemModel, ChildItemModel, ParentItemViewHolder, ChildItemViewHolder> {
 
 
 
@@ -49,7 +49,7 @@ public class ExpandableBeerTapsAdapter extends ExpandableRecyclerAdapter<ParentI
     }
 
     @Override
-    public void onBindChildViewHolder(@NonNull ChildItemViewHolder childViewHolder, int parentPosition, int childPosition, @NonNull ChaildItemModel child) {
+    public void onBindChildViewHolder(@NonNull ChildItemViewHolder childViewHolder, int parentPosition, int childPosition, @NonNull ChildItemModel child) {
         childViewHolder.bind(child);
     }
 

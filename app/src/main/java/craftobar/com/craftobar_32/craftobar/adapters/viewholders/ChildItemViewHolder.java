@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
 import craftobar.com.craftobar_32.craftobar.R;
-import craftobar.com.craftobar_32.craftobar.models.ChaildItemModel;
+import craftobar.com.craftobar_32.craftobar.models.ChildItemModel;
 
 /**
  * Created by a.zverev on 22.05.2018.
@@ -21,7 +21,7 @@ public class ChildItemViewHolder extends ChildViewHolder {
     }
 
 
-    public void bind(ChaildItemModel model) {
+    public void bind(ChildItemModel model) {
         option1.setText(model.getOption1());
     }
 }

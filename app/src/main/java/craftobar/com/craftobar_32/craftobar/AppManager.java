@@ -22,7 +22,7 @@ import craftobar.com.craftobar_32.craftobar.util.CbThreadPoolExecuror;
 public class AppManager {
 
     private final Context context;
-    private CbThreadPoolExecuror execuror;
+    private CbThreadPoolExecuror executor;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
     private boolean isNeedExit;
 
@@ -31,9 +31,11 @@ public class AppManager {
     public AppManager(Context context) {
         this.context = context;
 
-        execuror = new CbThreadPoolExecuror();
+        executor = new CbThreadPoolExecuror();
 
-        liveDataBeerTaps.setValue(BeerTapUtil.getBeerTapData());
+        String[] parentItemJsonArray = context.getResources().getStringArray(R.array.parentItemJson);
+
+        liveDataBeerTaps.setValue(BeerTapUtil.getBeerTapData(parentItemJsonArray));
     }
 
 
@@ -71,7 +73,7 @@ public class AppManager {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            List<ActivityManager.AppTask> listTasks = listTasks = activityManager.getAppTasks();
+            List<ActivityManager.AppTask> listTasks = activityManager.getAppTasks();
 
             for (ActivityManager.AppTask task : listTasks) {
                 task.finishAndRemoveTask();
@@ -88,5 +90,10 @@ public class AppManager {
     public void startSplashTime() {
         // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
 
+    }
+
+
+    public Context getContext() {
+        return context;
     }
 }

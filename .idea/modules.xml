@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CraftoBar.iml" filepath="$PROJECT_DIR$/CraftoBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CraftoBar32.iml" filepath="$PROJECT_DIR$/CraftoBar32.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -9,8 +9,6 @@
 
 
 
-    <!-- android:icon="@mipmap/ic_launcher" -->
-    <!-- android:roundIcon="@mipmap/ic_launcher_round" -->
     <application
         android:name=".CraftobarApplication"
         android:allowBackup="true"

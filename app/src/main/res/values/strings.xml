@@ -39,4 +39,20 @@
     <string name="test_resource">я добавила тестовый ресурс.</string>
     <string name="test_resource_text">я тоже добавил текстовый ресурс.</string>
 
+
+    <string-array name="parentItemJson">
+        <item>{\"number\":\"1\",\"name\":\"schneider weisse tap1\",\"type\":\"пшеничное\",\"maker\":\"германия\",\"price\":\"160\/120\",\"vol\":\"5,2\"}</item>
+        <item>{\"number\":\"2\",\"name\":\"american lager\",\"type\":\"\",\"maker\":\"velka morava\",\"price\":\"130\/170\",\"vol\":\"4,6\"}</item>
+        <item>{\"number\":\"3\",\"name\":\"summer of hase\",\"type\":\"juicy ipa\",\"maker\":\"бакунин\",\"price\":\"180\/230\",\"vol\":\"7,2\"}</item>
+        <item>{\"number\":\"4\",\"name\":\"eat no dust!\",\"type\":\"dipa ddh nelson sauvin\",\"maker\":\"af brew\",\"price\":\"0,4\/220\",\"vol\":\"8\"}</item>
+        <item>{\"number\":\"5\",\"name\":\"peach up\",\"type\":\"milkshake ipa с персиком\",\"maker\":\"бакунин\",\"price\":\"0,4\/200\",\"vol\":\"7,2\"}</item>
+        <item>{\"number\":\"6\",\"name\":\"moloko\",\"type\":\"milk stout\",\"maker\":\"бакунин\",\"price\":\"150\/210\",\"vol\":\"6,5\"}</item>
+        <item>{\"number\":\"7\",\"name\":\"Убить дракона\",\"type\":\"портер\",\"maker\":\"lovecraft\",\"price\":\"170\/220\",\"vol\":\"8\"}</item>
+        <item>{\"number\":\"8\",\"name\":\"duchesse de bourgogne\",\"type\":\"flanders red ale\",\"maker\":\"verhaeghe\",\"price\":\"230\/290\",\"vol\":\"6,2\"}</item>
+        <item>{\"number\":\"9\",\"name\":\"черный вепрь\",\"type\":\"тёмный мёд\",\"maker\":\"mjolnir\",\"price\":\"130\/170\",\"vol\":\"4,7\"}</item>
+        <item>{\"number\":\"10\",\"name\":\"вероника решает умереть\",\"type\":\"ris. coffee version\",\"maker\":\"plsn b\",\"price\":\"220\/270\",\"vol\":\"13\"}</item>
+        <item>{\"number\":\"1\",\"name\":\"schneider weisse tap1\",\"type\":\"пшеничное\",\"maker\":\"германия\",\"price\":\"160\/120\",\"vol\":\"5,2\"}</item>
+        <item>{\"number\":\"2\",\"name\":\"american lager\",\"type\":\"\",\"maker\":\"velka morava\",\"price\":\"130\/170\",\"vol\":\"4,6\"}</item>
+    </string-array>>
+
 </resources>
