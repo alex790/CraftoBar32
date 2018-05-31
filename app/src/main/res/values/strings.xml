@@ -35,11 +35,7 @@
     <string name="granted_access">Необходим доступ к файловой системе и интернет.</string>
 
 
-    <!-- test -->
-    <string name="test_resource">я добавила тестовый ресурс.</string>
-    <string name="test_resource_text">я тоже добавил текстовый ресурс.</string>
-
-
+    <!-- Данные о кранах -->
     <string-array name="parentItemJson">
         <item>{\"number\":\"1\",\"name\":\"schneider weisse tap1\",\"type\":\"пшеничное\",\"maker\":\"германия\",\"price\":\"160\/120\",\"vol\":\"5,2\"}</item>
         <item>{\"number\":\"2\",\"name\":\"american lager\",\"type\":\"\",\"maker\":\"velka morava\",\"price\":\"130\/170\",\"vol\":\"4,6\"}</item>
@@ -51,8 +47,8 @@
         <item>{\"number\":\"8\",\"name\":\"duchesse de bourgogne\",\"type\":\"flanders red ale\",\"maker\":\"verhaeghe\",\"price\":\"230\/290\",\"vol\":\"6,2\"}</item>
         <item>{\"number\":\"9\",\"name\":\"черный вепрь\",\"type\":\"тёмный мёд\",\"maker\":\"mjolnir\",\"price\":\"130\/170\",\"vol\":\"4,7\"}</item>
         <item>{\"number\":\"10\",\"name\":\"вероника решает умереть\",\"type\":\"ris. coffee version\",\"maker\":\"plsn b\",\"price\":\"220\/270\",\"vol\":\"13\"}</item>
-        <item>{\"number\":\"1\",\"name\":\"schneider weisse tap1\",\"type\":\"пшеничное\",\"maker\":\"германия\",\"price\":\"160\/120\",\"vol\":\"5,2\"}</item>
-        <item>{\"number\":\"2\",\"name\":\"american lager\",\"type\":\"\",\"maker\":\"velka morava\",\"price\":\"130\/170\",\"vol\":\"4,6\"}</item>
+        <item>{\"number\":\"11\",\"name\":\"schneider weisse tap1\",\"type\":\"пшеничное\",\"maker\":\"германия\",\"price\":\"160\/120\",\"vol\":\"5,2\"}</item>
+        <item>{\"number\":\"12\",\"name\":\"american lager\",\"type\":\"\",\"maker\":\"velka morava\",\"price\":\"130\/170\",\"vol\":\"4,6\"}</item>
     </string-array>>
 
 </resources>
