@@ -10,6 +10,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import craftobar.com.craftobar_32.craftobar.R;
 import craftobar.com.craftobar_32.craftobar.fragments.AboutFragment;
 import craftobar.com.craftobar_32.craftobar.fragments.BeerTapsFragment;
@@ -20,25 +23,28 @@ import craftobar.com.craftobar_32.craftobar.fragments.EventsFragment;
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private Toolbar toolbar;
-    private DrawerLayout drawer;
+    @BindView(R.id.toolbar)
+    protected Toolbar toolbar;
+
+    @BindView(R.id.drawer_layout)
+    protected DrawerLayout drawer;
+
+    @BindView(R.id.nav_view)
+    protected NavigationView navigationView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 

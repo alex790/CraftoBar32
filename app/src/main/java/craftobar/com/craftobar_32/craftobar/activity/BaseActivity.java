@@ -12,6 +12,7 @@ import craftobar.com.craftobar_32.craftobar.CraftobarApplication;
 
 public class BaseActivity extends AppCompatActivity {
 
+
     protected AppManager appManager;
 
 

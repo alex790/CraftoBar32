@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import craftobar.com.craftobar_32.craftobar.R;
 import craftobar.com.craftobar_32.craftobar.util.PermissionUtil;
 
@@ -20,11 +23,18 @@ import craftobar.com.craftobar_32.craftobar.util.PermissionUtil;
 
 public class PermissionActivity extends BaseActivity {
 
+
     private static final int REQUEST_APP_PERMISSIONS = 1;
 
-    private TextView tvMessage;
-    private Button btExit;
-    private Button btSettings;
+    @BindView(R.id.tv_message)
+    protected TextView tvMessage;
+
+    @BindView(R.id.bt_exit)
+    protected Button btExit;
+
+    @BindView(R.id.bt_settings)
+    protected Button btSettings;
+
     private boolean showRequestDialog = true;
 
 
@@ -33,21 +43,24 @@ public class PermissionActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
+        ButterKnife.bind(this);
 
-        tvMessage = findViewById(R.id.tv_message);
-        btExit = findViewById(R.id.bt_exit);
         btSettings = findViewById(R.id.bt_settings);
-
-        btExit.setOnClickListener(clickExit);
-        btSettings.setOnClickListener(clickSettings);
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (showRequestDialog) {
+
+        boolean permissionGranted = PermissionUtil.checkPermission(this);
+
+        if (!permissionGranted && showRequestDialog) {
             PermissionUtil.requestPermission(this);
+        }
+
+        if (permissionGranted) {
+            finish();
         }
 
         updateUiState();
@@ -64,24 +77,20 @@ public class PermissionActivity extends BaseActivity {
     }
 
 
-    private View.OnClickListener clickExit = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            appManager.setNeedExit();
-            finish();
-        }
-    };
+    @OnClick(R.id.bt_exit)
+    public void onClickExit(View v) {
+        appManager.setNeedExit();
+        finish();
+    }
 
 
-    private View.OnClickListener clickSettings = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
-            intent.addCategory(Intent.CATEGORY_DEFAULT);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivityForResult(intent, REQUEST_APP_PERMISSIONS);
-        }
-    };
+    @OnClick(R.id.bt_settings)
+    public void onClickSettings(View v) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityForResult(intent, REQUEST_APP_PERMISSIONS);
+    }
 
 
     // решение пользователя по разрешениям
@@ -104,5 +113,9 @@ public class PermissionActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+    }
 }
