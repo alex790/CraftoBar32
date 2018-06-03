@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import craftobar.com.craftobar_32.craftobar.R;
 import craftobar.com.craftobar_32.craftobar.adapters.ExpandableBeerTapsAdapter;
 import craftobar.com.craftobar_32.craftobar.models.ParentItemModel;
@@ -25,7 +28,11 @@ public class BeerTapsFragment extends BaseFragment {
 
     public static final String TAG = "BeerTapsFragment_TAG";
 
-    private RecyclerView recyclerView;
+    private Unbinder unbinder;
+
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerView;
+
     private ExpandableBeerTapsAdapter adapter;
 
 
@@ -34,12 +41,13 @@ public class BeerTapsFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_beer_taps, container, false);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        unbinder = ButterKnife.bind(this, view);
 
         adapter = new ExpandableBeerTapsAdapter(new ArrayList<ParentItemModel>());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
         recyclerView = view.findViewById(R.id.recyclerview);
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
@@ -50,10 +58,16 @@ public class BeerTapsFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+
         appManager.setBeerTapsObserver(this, beeerTapsObserver);
     }
 
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
 
     private Observer<List<ParentItemModel>> beeerTapsObserver = new Observer<List<ParentItemModel>>() {
         @Override

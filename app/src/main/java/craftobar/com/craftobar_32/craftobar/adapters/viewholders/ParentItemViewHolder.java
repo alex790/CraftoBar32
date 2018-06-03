@@ -5,6 +5,9 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bignerdranch.expandablerecyclerview.ParentViewHolder;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import craftobar.com.craftobar_32.craftobar.R;
 import craftobar.com.craftobar_32.craftobar.models.ParentItemModel;
 
@@ -18,29 +21,27 @@ public class ParentItemViewHolder extends ParentViewHolder {
     private static final float INITIAL_POSITION = 0.0f;
     private static final float ROTATED_POSITION = 180f;
 
+    @BindView(R.id.button)
+    ImageView imageView;
 
-    private ImageView imageView;
+    @BindView(R.id.tv_number)
+    TextView tvNumber;
+    @BindView(R.id.tv_name)
+    TextView tvName;
+    @BindView(R.id.tv_type)
+    TextView tvType;
+    @BindView(R.id.tv_maker)
+    TextView tvMaker;
+    @BindView(R.id.tv_price)
+    TextView tvPrice;
+    @BindView(R.id.tv_vol)
+    TextView tvVol;
 
-    private TextView tvNumber;
-    private TextView tvName;
-    private TextView tvType;
-    private TextView tvMaker;
-    private TextView tvPrice;
-    private TextView tvVol;
 
 
-
-    public ParentItemViewHolder(View itemView) {
-        super(itemView);
-
-        imageView = itemView.findViewById(R.id.button);
-
-        tvNumber = itemView.findViewById(R.id.tv_number);
-        tvName = itemView.findViewById(R.id.tv_name);
-        tvType = itemView.findViewById(R.id.tv_type);
-        tvMaker = itemView.findViewById(R.id.tv_maker);
-        tvPrice = itemView.findViewById(R.id.tv_price);
-        tvVol = itemView.findViewById(R.id.tv_vol);
+    public ParentItemViewHolder(View view) {
+        super(view);
+        ButterKnife.bind(this, view);
     }
 
 

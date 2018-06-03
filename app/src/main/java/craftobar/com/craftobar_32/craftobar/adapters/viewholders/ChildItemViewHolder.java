@@ -3,6 +3,9 @@ package craftobar.com.craftobar_32.craftobar.adapters.viewholders;
 import android.view.View;
 import android.widget.TextView;
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import craftobar.com.craftobar_32.craftobar.R;
 import craftobar.com.craftobar_32.craftobar.models.ChildItemModel;
 
@@ -12,12 +15,14 @@ import craftobar.com.craftobar_32.craftobar.models.ChildItemModel;
 
 public class ChildItemViewHolder extends ChildViewHolder {
 
-    private TextView option1;
+
+    @BindView(R.id.option1)
+    TextView option1;
 
 
-    public ChildItemViewHolder(View itemView) {
-        super(itemView);
-        option1 = itemView.findViewById(R.id.option1);
+    public ChildItemViewHolder(View view) {
+        super(view);
+        ButterKnife.bind(this, view);
     }
 
 
