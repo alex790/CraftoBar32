@@ -6,16 +6,18 @@ package craftobar.com.craftobar_32.craftobar.models;
 
 public class ChildItemModel {
 
-    public String option1;
+    public String description;
 
 
-    public ChildItemModel(String option1) {
-        this.option1 = option1;
+    public ChildItemModel() {}
+
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-
-    public String getOption1() {
-        return option1;
+    public String getDescription() {
+        return description;
     }
 
 }

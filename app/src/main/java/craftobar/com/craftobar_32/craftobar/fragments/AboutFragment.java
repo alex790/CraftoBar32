@@ -33,7 +33,7 @@ public class AboutFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
-        unbinder = ButterKnife.bind(view);
+        unbinder = ButterKnife.bind(this, view);
 
         return view;
     }

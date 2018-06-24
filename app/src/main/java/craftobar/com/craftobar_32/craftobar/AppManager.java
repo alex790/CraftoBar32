@@ -7,35 +7,36 @@ import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.List;
 
 import craftobar.com.craftobar_32.craftobar.activity.MainActivity;
 import craftobar.com.craftobar_32.craftobar.activity.PermissionActivity;
 import craftobar.com.craftobar_32.craftobar.models.ParentItemModel;
-import craftobar.com.craftobar_32.craftobar.util.CbThreadPoolExecuror;
+import craftobar.com.craftobar_32.craftobar.models.Tap;
+import craftobar.com.craftobar_32.craftobar.network.NetworkManager;
+import io.reactivex.observers.DisposableSingleObserver;
 
 /**
+ * класс управляющий логикой работы приложения
+ *
  * Created by a.zverev on 25.05.2018.
  */
 
 public class AppManager {
 
+
     private final Context context;
-    private CbThreadPoolExecuror executor;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
+    private NetworkManager networkManager;
     private boolean isNeedExit;
 
 
 
     public AppManager(Context context) {
         this.context = context;
-
-        executor = new CbThreadPoolExecuror();
-
-        String[] parentItemJsonArray = context.getResources().getStringArray(R.array.parentItemJson);
-
-        liveDataBeerTaps.setValue(BeerTapUtil.getBeerTapData(parentItemJsonArray));
+        networkManager = new NetworkManager();
     }
 
 
@@ -55,6 +56,35 @@ public class AppManager {
 
     public void setBeerTapsObserver (@NonNull LifecycleOwner lifecycleOwner, Observer<List<ParentItemModel>> observer) {
         liveDataBeerTaps.observe(lifecycleOwner, observer);
+    }
+
+
+    /**
+     * Стартовал сплеш скриин
+     */
+    public void startSplashTime() {
+        // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
+
+        networkManager.startLoadBeerTaps(loadTapsObserver);
+    }
+
+
+    private DisposableSingleObserver<List<Tap>> loadTapsObserver = new DisposableSingleObserver<List<Tap>>() {
+        @Override
+        public void onSuccess(List<Tap> beerTaps) {
+            Log.d("Alex", "response " + beerTaps.size());
+            liveDataBeerTaps.setValue(BeerTapUtil.getBeerTapData(beerTaps));
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Log.d("Alex", "onError");
+        }
+    };
+
+
+    public Context getContext() {
+        return context;
     }
 
 
@@ -81,19 +111,5 @@ public class AppManager {
         }
 
         System.exit(0);
-    }
-
-
-    /**
-     * Стартовал сплеш скриин
-     */
-    public void startSplashTime() {
-        // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
-
-    }
-
-
-    public Context getContext() {
-        return context;
     }
 }

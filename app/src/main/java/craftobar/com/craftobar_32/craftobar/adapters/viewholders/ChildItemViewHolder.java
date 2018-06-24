@@ -16,8 +16,8 @@ import craftobar.com.craftobar_32.craftobar.models.ChildItemModel;
 public class ChildItemViewHolder extends ChildViewHolder {
 
 
-    @BindView(R.id.option1)
-    TextView option1;
+    @BindView(R.id.description)
+    TextView description;
 
 
     public ChildItemViewHolder(View view) {
@@ -27,6 +27,6 @@ public class ChildItemViewHolder extends ChildViewHolder {
 
 
     public void bind(ChildItemModel model) {
-        option1.setText(model.getOption1());
+        description.setText(model.getDescription());
     }
 }

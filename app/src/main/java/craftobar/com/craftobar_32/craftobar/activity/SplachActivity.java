@@ -50,6 +50,8 @@ public class SplachActivity extends BaseActivity {
     @SuppressLint("StaticFieldLeak")
     private void startSplashTimer() {
 
+        // Todo заменить на что-нить поудобнее Rx например
+
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
@@ -65,12 +67,12 @@ public class SplachActivity extends BaseActivity {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
 
-                if (appManager.isNeedExit()) {
-                    appManager.exit();
-                }
-                else {
-                    appManager.showMainPage();
-                }
+//                if (appManager.isNeedExit()) {
+//                    appManager.exit();
+//                }
+//                else {
+//                }
+                appManager.showMainPage();
                 finish();
             }
         }.execute();

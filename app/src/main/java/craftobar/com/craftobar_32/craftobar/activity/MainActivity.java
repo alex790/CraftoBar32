@@ -64,6 +64,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
         else {
             super.onBackPressed();
+            appManager.exit();
         }
     }
 

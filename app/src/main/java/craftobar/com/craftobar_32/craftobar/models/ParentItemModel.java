@@ -5,6 +5,7 @@ import com.bignerdranch.expandablerecyclerview.model.Parent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,48 +25,24 @@ public class ParentItemModel implements Parent<ChildItemModel> {
     private String vol;
 
 
-    public ParentItemModel(List<ChildItemModel> childrenList) {
-        this.childrenList = childrenList;
+    public ParentItemModel(Tap tap) {
+        number = tap.getTapNumber();
+        name = tap.getBeer().getName();
+        type = tap.getBeer().getType();
+        maker = tap.getBeer().getManufacturer();
+        price = "";
+        vol = tap.getBeer().getAlcohol();
+
+        createChildrenList(tap);
     }
 
 
-    public void setChildrenList(List<ChildItemModel> childrenList) {
-        this.childrenList = childrenList;
-    }
+    private void createChildrenList(Tap tap) {
 
+        ChildItemModel childItem = new ChildItemModel();
+        childItem.setDescription(tap.getBeer().getDescription());
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
-    public void setMaker(String maker) {
-        this.maker = maker;
-    }
-
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-
-    public void setVol(String vol) {
-        this.vol = vol;
-    }
-
-
-    public List<ChildItemModel> getChildrenList() {
-        return childrenList;
+        childrenList = Collections.singletonList(childItem);
     }
 
 
@@ -110,23 +87,4 @@ public class ParentItemModel implements Parent<ChildItemModel> {
         return false;
     }
 
-
-    public String toJSON(){
-
-        JSONObject jsonObject= new JSONObject();
-        try {
-            jsonObject.put("number", getNumber());
-            jsonObject.put("name", getName());
-            jsonObject.put("type", getType());
-            jsonObject.put("maker", getMaker());
-            jsonObject.put("price", getPrice());
-            jsonObject.put("vol", getVol());
-
-            return jsonObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return "";
-        }
-
-    }
 }
