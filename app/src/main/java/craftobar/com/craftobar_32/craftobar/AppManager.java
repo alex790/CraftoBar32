@@ -29,14 +29,14 @@ public class AppManager {
 
     private final Context context;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
-    private NetworkManager networkManager;
+ //   private NetworkManager networkManager;
     private boolean isNeedExit;
 
 
 
     public AppManager(Context context) {
         this.context = context;
-        networkManager = new NetworkManager();
+ //       networkManager = new NetworkManager();
     }
 
 
@@ -59,15 +59,19 @@ public class AppManager {
     }
 
 
-    /**
-     * Стартовал сплеш скриин
-     */
-    public void startSplashTime() {
-        // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
+//    /**
+//     * Стартовал сплеш скриин
+//     */
+//    public void startSplashTime() {
+//        // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
+//
+//        networkManager.startLoadBeerTaps(loadTapsObserver);
+//    }
 
-        networkManager.startLoadBeerTaps(loadTapsObserver);
+
+    public DisposableSingleObserver<List<Tap>> getLoadTapsObserver() {
+        return loadTapsObserver;
     }
-
 
     private DisposableSingleObserver<List<Tap>> loadTapsObserver = new DisposableSingleObserver<List<Tap>>() {
         @Override

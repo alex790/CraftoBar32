@@ -6,17 +6,25 @@ import android.os.Bundle;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
+import craftobar.com.craftobar_32.craftobar.App;
 import craftobar.com.craftobar_32.craftobar.R;
+import craftobar.com.craftobar_32.craftobar.network.NetworkManager;
 import craftobar.com.craftobar_32.craftobar.util.PermissionUtil;
 
 
 public class SplachActivity extends BaseActivity {
 
+    @Inject
+    protected NetworkManager networkManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
+
+        App.getComponent().ingect(this);
     }
 
 
@@ -38,7 +46,8 @@ public class SplachActivity extends BaseActivity {
         // если разрешения установлены
         if (PermissionUtil.checkPermission(this)) {
             startSplashTimer();
-            appManager.startSplashTime();
+         //   appManager.startSplashTime();
+            networkManager.startLoadBeerTaps(appManager.getLoadTapsObserver());
         }
         else {
             // иначе переходим на страницу разрешений

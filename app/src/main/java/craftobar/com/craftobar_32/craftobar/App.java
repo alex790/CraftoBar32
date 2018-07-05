@@ -3,13 +3,17 @@ package craftobar.com.craftobar_32.craftobar;
 import android.app.Application;
 import android.content.Context;
 
+import craftobar.com.craftobar_32.craftobar.dagger.AppComponent;
+import craftobar.com.craftobar_32.craftobar.dagger.DaggerAppComponent;
+
 /**
  * Created by a.zverev on 25.05.2018.
  */
 
-public class CraftobarApplication extends Application {
+public class App extends Application {
 
     private AppManager appManager;
+    private static AppComponent component;
 
 
     // Этот метод вызывается до onCreate()
@@ -23,6 +27,12 @@ public class CraftobarApplication extends Application {
     public void onCreate() {
         super.onCreate();
         appManager = new AppManager(this);
+        component = DaggerAppComponent.create();
+    }
+
+
+    public static AppComponent getComponent(){
+        return component;
     }
 
 
