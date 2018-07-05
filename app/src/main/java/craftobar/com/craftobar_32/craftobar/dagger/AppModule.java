@@ -3,6 +3,7 @@ package craftobar.com.craftobar_32.craftobar.dagger;
 import android.content.Context;
 import javax.inject.Singleton;
 
+import craftobar.com.craftobar_32.craftobar.AppManager;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.annotations.NonNull;
@@ -25,5 +26,12 @@ public class AppModule {
     @Singleton
     public Context provideAppContext(){
         return appContext;
+    }
+
+
+    @Provides
+    @Singleton
+    public AppManager provideAppManager() {
+        return new AppManager(appContext);
     }
 }

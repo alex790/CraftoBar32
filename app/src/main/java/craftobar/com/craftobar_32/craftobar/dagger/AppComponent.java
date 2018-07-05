@@ -2,8 +2,10 @@ package craftobar.com.craftobar_32.craftobar.dagger;
 
 import javax.inject.Singleton;
 
+import craftobar.com.craftobar_32.craftobar.AppManager;
+import craftobar.com.craftobar_32.craftobar.activity.BaseActivity;
 import craftobar.com.craftobar_32.craftobar.activity.SplachActivity;
-import craftobar.com.craftobar_32.craftobar.network.NetworkManager;
+import craftobar.com.craftobar_32.craftobar.fragments.BaseFragment;
 import dagger.Component;
 
 /**
@@ -11,11 +13,13 @@ import dagger.Component;
  */
 
 
-@Component(modules = {AppModule.class, NetworkModule.class})
+@Component(modules = {AppModule.class})//, NetworkModule.class})
 @Singleton
 public interface AppComponent {
 
     void ingect(SplachActivity activity);
+    void ingect(BaseActivity activity);
+    void ingect(BaseFragment fragment);
 
-    NetworkManager getNetworkManager();
+    AppManager getAppManager();
 }

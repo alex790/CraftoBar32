@@ -34,9 +34,6 @@ public class NetworkManager {
 
 
     private void createRetrofit(String url) {
-
-        Log.d("Alex", "createRetrofit ");
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -44,15 +41,11 @@ public class NetworkManager {
                 .build();
 
         craftobarApi = retrofit.create(CraftobarApi.class);
-
-        Log.d("Alex", "createRetrofit finish ");
-
     }
 
 
 
     public void startLoadBeerTaps(DisposableSingleObserver<List<Tap>> observer) {
-        Log.d("Alex", "делаем загрузку данных ");
 
         Single<List<Tap>> messages = craftobarApi.beerTaps();
 

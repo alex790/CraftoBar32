@@ -3,21 +3,13 @@ package craftobar.com.craftobar_32.craftobar.activity;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import java.util.concurrent.TimeUnit;
-
-import javax.inject.Inject;
-
 import craftobar.com.craftobar_32.craftobar.App;
 import craftobar.com.craftobar_32.craftobar.R;
-import craftobar.com.craftobar_32.craftobar.network.NetworkManager;
 import craftobar.com.craftobar_32.craftobar.util.PermissionUtil;
 
 
 public class SplachActivity extends BaseActivity {
-
-    @Inject
-    protected NetworkManager networkManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +38,7 @@ public class SplachActivity extends BaseActivity {
         // если разрешения установлены
         if (PermissionUtil.checkPermission(this)) {
             startSplashTimer();
-         //   appManager.startSplashTime();
-            networkManager.startLoadBeerTaps(appManager.getLoadTapsObserver());
+            appManager.startSplashScreen();
         }
         else {
             // иначе переходим на страницу разрешений
@@ -75,12 +66,6 @@ public class SplachActivity extends BaseActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-
-//                if (appManager.isNeedExit()) {
-//                    appManager.exit();
-//                }
-//                else {
-//                }
                 appManager.showMainPage();
                 finish();
             }

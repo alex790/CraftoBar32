@@ -28,15 +28,15 @@ public class AppManager {
 
 
     private final Context context;
+    private NetworkManager networkManager;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
- //   private NetworkManager networkManager;
     private boolean isNeedExit;
 
 
 
     public AppManager(Context context) {
         this.context = context;
- //       networkManager = new NetworkManager();
+        networkManager = new NetworkManager();
     }
 
 
@@ -59,19 +59,13 @@ public class AppManager {
     }
 
 
-//    /**
-//     * Стартовал сплеш скриин
-//     */
-//    public void startSplashTime() {
-//        // TODO: 28.05.2018 старовал сплеш скрин делаем загрузку данных
-//
-//        networkManager.startLoadBeerTaps(loadTapsObserver);
-//    }
-
-
-    public DisposableSingleObserver<List<Tap>> getLoadTapsObserver() {
-        return loadTapsObserver;
+    /**
+     * Стартовал сплеш скриин
+     */
+    public void startSplashScreen() {
+        networkManager.startLoadBeerTaps(loadTapsObserver);
     }
+
 
     private DisposableSingleObserver<List<Tap>> loadTapsObserver = new DisposableSingleObserver<List<Tap>>() {
         @Override
@@ -85,11 +79,6 @@ public class AppManager {
             Log.d("Alex", "onError");
         }
     };
-
-
-    public Context getContext() {
-        return context;
-    }
 
 
     public void setNeedExit() {
