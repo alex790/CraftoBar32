@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        relise {
+        release {
             keyAlias 'CraftoBar_alex790'
             keyPassword 'craftobar'
-            storeFile file('E:/ANDROID_PROJECTS/CraftoBar/appkey.jks')
+            storeFile file('appkey.jks')
             storePassword 'craftobar'
         }
     }
@@ -22,10 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.relise
+            signingConfig signingConfigs.release
         }
         debug {
-            signingConfig signingConfigs.relise
+            signingConfig signingConfigs.release
         }
     }
 }
