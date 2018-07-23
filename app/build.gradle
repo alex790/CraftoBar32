@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'CraftoBar_alex790'
             keyPassword 'craftobar'
-            storeFile file('appkey.jks')
+            storeFile rootProject.file('appkey.jks')
             storePassword 'craftobar'
         }
     }

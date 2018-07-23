@@ -1,15 +1,20 @@
 package craftobar.com.craftobar_32.craftobar.activity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,19 +23,17 @@ import craftobar.com.craftobar_32.craftobar.fragments.AboutFragment;
 import craftobar.com.craftobar_32.craftobar.fragments.BeerTapsFragment;
 import craftobar.com.craftobar_32.craftobar.fragments.CatalogFragment;
 import craftobar.com.craftobar_32.craftobar.fragments.EventsFragment;
+import craftobar.com.craftobar_32.craftobar.util.BottomNavigationViewHelper;
+import craftobar.com.craftobar_32.craftobar.util.StatusBarUtil;
 
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar)
     protected Toolbar toolbar;
 
-    @BindView(R.id.drawer_layout)
-    protected DrawerLayout drawer;
-
-    @BindView(R.id.nav_view)
-    protected NavigationView navigationView;
+    @BindView(R.id.bottom_navigation)
+    protected BottomNavigationView navigationView;
 
 
     @Override
@@ -40,12 +43,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        navigationView.setOnNavigationItemSelectedListener(this);
+        BottomNavigationViewHelper.disableShiftMode(navigationView);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
+        StatusBarUtil.updateStatusBarColor(this, R.color.colorPrimary);
     }
 
 
@@ -58,34 +59,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public void onBackPressed() {
-
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else {
             super.onBackPressed();
             appManager.exit();
-        }
-    }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -114,13 +89,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             default:
                 break;
         }
-
-        drawer.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                drawer.closeDrawer(GravityCompat.START);
-            }
-        }, 100);
 
         return true;
     }
