@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         navigationView.setOnNavigationItemSelectedListener(this);
         BottomNavigationViewHelper.disableShiftMode(navigationView);
 
-        StatusBarUtil.updateStatusBarColor(this, R.color.colorPrimary);
+        StatusBarUtil.updateStatusBarColor(this, R.color.backGroundTaps);
     }
 
 

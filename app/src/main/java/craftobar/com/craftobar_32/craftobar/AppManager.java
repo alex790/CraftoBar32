@@ -13,6 +13,7 @@ import java.util.List;
 
 import craftobar.com.craftobar_32.craftobar.activity.MainActivity;
 import craftobar.com.craftobar_32.craftobar.activity.PermissionActivity;
+import craftobar.com.craftobar_32.craftobar.models.Event;
 import craftobar.com.craftobar_32.craftobar.models.ParentItemModel;
 import craftobar.com.craftobar_32.craftobar.models.Tap;
 import craftobar.com.craftobar_32.craftobar.network.NetworkManager;
@@ -30,6 +31,7 @@ public class AppManager {
     private final Context context;
     private NetworkManager networkManager;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
+    private MutableLiveData<List<Event>> liveDataEvents = new MutableLiveData<>();
     private boolean isNeedExit;
 
 
@@ -59,19 +61,39 @@ public class AppManager {
     }
 
 
+    public void setEventsObserver (@NonNull LifecycleOwner lifecycleOwner, Observer<List<Event>> observer) {
+        liveDataEvents.observe(lifecycleOwner, observer);
+    }
+
+
     /**
      * Стартовал сплеш скриин
      */
     public void startSplashScreen() {
         networkManager.startLoadBeerTaps(loadTapsObserver);
+        networkManager.startLoadEvents(loadEventsObserver);
     }
 
 
     private DisposableSingleObserver<List<Tap>> loadTapsObserver = new DisposableSingleObserver<List<Tap>>() {
         @Override
         public void onSuccess(List<Tap> beerTaps) {
-            Log.d("Alex", "response " + beerTaps.size());
+            Log.d("Alex", "response tap " + beerTaps.size());
             liveDataBeerTaps.setValue(BeerTapUtil.getBeerTapData(beerTaps));
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Log.d("Alex", "onError");
+        }
+    };
+
+
+    private DisposableSingleObserver<List<Event>> loadEventsObserver = new DisposableSingleObserver<List<Event>>() {
+        @Override
+        public void onSuccess(List<Event> events) {
+            Log.d("Alex", "response events " + events.size());
+            liveDataEvents.setValue(events);
         }
 
         @Override

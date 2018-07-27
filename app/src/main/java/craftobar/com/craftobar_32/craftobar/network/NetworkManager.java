@@ -2,8 +2,12 @@ package craftobar.com.craftobar_32.craftobar.network;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 
+import craftobar.com.craftobar_32.craftobar.models.Event;
 import craftobar.com.craftobar_32.craftobar.models.Tap;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -34,9 +38,13 @@ public class NetworkManager {
 
 
     private void createRetrofit(String url) {
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                .create();
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
@@ -55,4 +63,12 @@ public class NetworkManager {
     }
 
 
+    public void startLoadEvents(DisposableSingleObserver<List<Event>> observer) {
+
+        Single<List<Event>> messages = craftobarApi.events();
+
+        messages.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }
