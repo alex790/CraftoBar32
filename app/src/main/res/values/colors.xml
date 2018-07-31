@@ -4,9 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="backGroundTaps">#343434</color>
+    <color name="backGroundTaps">#2f3036</color>
+    <color name="titleTaps">#3db5e6</color>
+    <color name="textTaps">#de2f3036</color>
     <color name="statusbar">#000000</color>
     <color name="transparent">#00ffffff</color>
     <color name="white">#ffffff</color>
-
+    <color name="backBeerTap">#f9f9fb</color>
+    <color name="backBeer">#c1c7ce</color>
+<!---->
 </resources>

@@ -32,8 +32,6 @@ public class ParentItemViewHolder extends ParentViewHolder {
     TextView tvType;
     @BindView(R.id.tv_maker)
     TextView tvMaker;
-    @BindView(R.id.tv_price)
-    TextView tvPrice;
     @BindView(R.id.tv_vol)
     TextView tvVol;
 
@@ -48,9 +46,8 @@ public class ParentItemViewHolder extends ParentViewHolder {
     public void bind(ParentItemModel model) {
         tvNumber.setText(model.getNumber());
         tvName.setText(model.getName().toUpperCase());
-        tvType.setText(model.getType().toUpperCase());
-        tvMaker.setText(model.getMaker().toUpperCase());
-        tvPrice.setText(model.getPrice());
+        tvType.setText(model.getType());
+        tvMaker.setText(model.getMaker());
         tvVol.setText(model.getVol() + "%");
     }
 
