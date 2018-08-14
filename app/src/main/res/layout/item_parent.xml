@@ -5,108 +5,135 @@
     android:layout_height="72dp"
     android:layout_marginBottom="8dp"
     android:layout_marginTop="2dp"
-    android:orientation="horizontal"
-    android:background="@color/backGroundTaps">
+    android:background="@color/backBeer"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="48dp"
         android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@color/backGroundTaps"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/tv_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:fontFamily="@font/intro"
-        android:text="13"
-        android:textColor="@color/backBeerTap"
-        android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/intro"
+            android:text="13"
+            android:textColor="@color/backBeerTap"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-    <RelativeLayout
-        android:id="@+id/relative"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_margin="3dp"
-        android:background="@drawable/beer_tap_background"
-        android:paddingBottom="5dp"
-        android:paddingTop="10dp">
-
-        <TextView
-            android:id="@+id/tv_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tv_maker"
-            android:layout_alignBottom="@+id/tv_maker"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="20dp"
-            android:layout_toStartOf="@+id/tv_maker"
-            android:ellipsize="end"
-            android:fontFamily="@font/intro"
-            android:maxLines="1"
-            android:text="УБИТЬ ДРАКОНА"
-            android:textSize="14sp"
-            android:textColor="@color/titleTaps" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/beer_tap_back_left"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_toStartOf="@+id/tv_vol"
-            android:ellipsize="end"
-            android:fontFamily="@font/roboto"
-            android:maxLines="1"
-            android:textSize="14sp"
-            android:text="ПОРТЕР"
-            android:textColor="@color/textTaps" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/tv_maker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:fontFamily="@font/roboto"
-            android:text="LOVECRAFT"
-            android:textColor="@color/backGroundTaps"
-            android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/tv_maker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:fontFamily="@font/intro"
+                    android:text="LOVECRAFT"
+                    android:textColor="@color/backGroundTaps"
+                    android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_vol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
-            android:fontFamily="@font/roboto"
-            android:text="8%"
-            android:textColor="@color/textTaps"
-            android:textSize="14sp"/>
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_maker"
+                    android:layout_alignBottom="@+id/tv_maker"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@+id/tv_maker"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/intro"
+                    android:maxLines="1"
+                    android:text="УБИТЬ ДРАКОНА"
+                    android:textColor="@color/titleTaps"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="top"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp">
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_toStartOf="@+id/tv_vol"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/intro"
+                    android:maxLines="1"
+                    android:text="ПОРТЕР"
+                    android:textColor="@color/textTaps"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_vol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/intro"
+                    android:text="8%"
+                    android:textColor="@color/textTaps"
+                    android:textSize="14sp" />
+            </RelativeLayout>
 
 
-    <android.support.v7.widget.AppCompatImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="4dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/transparent"
-        android:clickable="false"
-        android:src="@drawable/ic_arrow_down"
-        android:visibility="visible" /> </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@drawable/beer_tap_back_right"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@color/transparent"
+                android:clickable="false"
+                android:src="@drawable/ic_arrow_down"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
