@@ -26,12 +26,16 @@ public class ParentItemViewHolder extends ParentViewHolder {
 
     @BindView(R.id.tv_number)
     TextView tvNumber;
+
     @BindView(R.id.tv_name)
     TextView tvName;
+
     @BindView(R.id.tv_type)
     TextView tvType;
+
     @BindView(R.id.tv_maker)
     TextView tvMaker;
+
     @BindView(R.id.tv_vol)
     TextView tvVol;
 

@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="backGroundTaps">#2f3036</color>
+    <color name="divider">#152f3036</color>
     <color name="titleTaps">#3db5e6</color>
     <color name="textTaps">#de2f3036</color>
     <color name="statusbar">#000000</color>
