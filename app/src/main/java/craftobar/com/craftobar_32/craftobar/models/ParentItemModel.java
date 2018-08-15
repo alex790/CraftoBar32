@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ParentItemModel implements Parent<ChildItemModel> {
 
-
     private List<ChildItemModel> childrenList;
 
     private String number;
@@ -45,31 +44,25 @@ public class ParentItemModel implements Parent<ChildItemModel> {
         childrenList = Collections.singletonList(childItem);
     }
 
-
     public String getNumber() {
         return number;
     }
-
 
     public String getName() {
         return name;
     }
 
-
     public String getType() {
         return type;
     }
-
 
     public String getMaker() {
         return maker;
     }
 
-
     public String getPrice() {
         return price;
     }
-
 
     public String getVol() {
         return vol;

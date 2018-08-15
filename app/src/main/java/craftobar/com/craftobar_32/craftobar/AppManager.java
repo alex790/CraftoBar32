@@ -27,13 +27,11 @@ import io.reactivex.observers.DisposableSingleObserver;
 
 public class AppManager {
 
-
     private final Context context;
     private NetworkManager networkManager;
     private MutableLiveData<List<ParentItemModel>> liveDataBeerTaps = new MutableLiveData<>();
     private MutableLiveData<List<Event>> liveDataEvents = new MutableLiveData<>();
     private boolean isNeedExit;
-
 
 
     public AppManager(Context context) {
@@ -70,8 +68,8 @@ public class AppManager {
      * Стартовал сплеш скриин
      */
     public void startSplashScreen() {
-        networkManager.startLoadBeerTaps(loadTapsObserver);
-        networkManager.startLoadEvents(loadEventsObserver);
+        networkManager.loadBeerTaps(loadTapsObserver);
+        networkManager.loadEvents(loadEventsObserver);
     }
 
 

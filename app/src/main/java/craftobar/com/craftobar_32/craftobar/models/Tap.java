@@ -6,9 +6,9 @@ package craftobar.com.craftobar_32.craftobar.models;
 
 public class Tap {
 
-
     private int tap;
     private Beer beer;
+
 
     public void setTap(int tap) {
         this.tap = tap;

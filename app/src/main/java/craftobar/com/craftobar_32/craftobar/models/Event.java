@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Event {
+
     private Date date;
     private String name;
     private String imageUrl;

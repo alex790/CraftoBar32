@@ -6,7 +6,6 @@ package craftobar.com.craftobar_32.craftobar.models;
 
 public class Beer {
 
-
     private String name;
     private String type;
     private String manufacturer;

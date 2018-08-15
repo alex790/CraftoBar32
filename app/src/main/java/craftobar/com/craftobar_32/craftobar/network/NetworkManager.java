@@ -1,12 +1,8 @@
 package craftobar.com.craftobar_32.craftobar.network;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.util.List;
-
 import craftobar.com.craftobar_32.craftobar.models.Event;
 import craftobar.com.craftobar_32.craftobar.models.Tap;
 import io.reactivex.Single;
@@ -26,7 +22,6 @@ public class NetworkManager {
 
     private String  baseUrl = "http://api.craftoshop.ru/v1/";
 
-
     private Retrofit retrofit;
     private CraftobarApi craftobarApi;
 
@@ -34,7 +29,6 @@ public class NetworkManager {
     public NetworkManager() {
         createRetrofit(baseUrl);
     }
-
 
 
     private void createRetrofit(String url) {
@@ -52,8 +46,7 @@ public class NetworkManager {
     }
 
 
-
-    public void startLoadBeerTaps(DisposableSingleObserver<List<Tap>> observer) {
+    public void loadBeerTaps(DisposableSingleObserver<List<Tap>> observer) {
 
         Single<List<Tap>> messages = craftobarApi.beerTaps();
 
@@ -63,7 +56,7 @@ public class NetworkManager {
     }
 
 
-    public void startLoadEvents(DisposableSingleObserver<List<Event>> observer) {
+    public void loadEvents(DisposableSingleObserver<List<Event>> observer) {
 
         Single<List<Event>> messages = craftobarApi.events();
 

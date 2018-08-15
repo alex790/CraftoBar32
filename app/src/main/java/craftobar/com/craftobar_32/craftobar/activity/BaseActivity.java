@@ -15,8 +15,7 @@ import craftobar.com.craftobar_32.craftobar.App;
 public class BaseActivity extends AppCompatActivity {
 
 
-    @Inject
-    protected AppManager appManager;
+    @Inject protected AppManager appManager;
 
 
     @Override

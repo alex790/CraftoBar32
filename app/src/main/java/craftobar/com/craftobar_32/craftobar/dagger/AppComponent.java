@@ -18,7 +18,9 @@ import dagger.Component;
 public interface AppComponent {
 
     void ingect(SplachActivity activity);
+
     void ingect(BaseActivity activity);
+
     void ingect(BaseFragment fragment);
 
     AppManager getAppManager();
